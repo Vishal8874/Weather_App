@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather app</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="main-text">Weather App</h1>
+      <div class="master-input"> 
+        <div class="search-field">
+          <input id="input_field" type="text" placeholder="Enter City"/>
+          <i class="fa-solid fa-magnifying-glass search-icon" id="search_bar"></i>
+        </div>
+      </div>
+
+      <div class="loc_notFound hide">
+        <h2 class="main-text">Oops! Location not found.</h2>
+        <button class="go_back">Try another location</button>
+      </div>
+
+      
+
+      <div class="location-access">
+        <img src="assets/location.png" alt="logo" class="map-logo" />
+        <h4>Grant Location Access</h4>
+        <p>Allow access to get weather inforamation</p>
+        <button id="btn">Grant Access</button>
+      </div>
+
+      <div class="visible hide">
+        <div class="main-content">
+          <div class="city-info">
+            <h1 class="cityname">Katahara</h1>
+            <img class="flag" src="https://flagsapi.com/US/flat/64.png" />
+          </div>
+          <h1 class="temp">18</h1>
+          <p class="show-text">Light rain</p>
+        </div>
+
+        <div class="card-layout">
+          <div class="humidity card">
+            <img src="assets/humidity.png" alt="logo" />
+            <div class="text-decoration">
+              <p class="humid">95%</p>
+              <h4>HUMIDITY</h4>
+            </div>
+          </div>
+          <div class="wind-speed card">
+            <img src="assets/wind.png" alt="logo" />
+            <div class="text-decoraton">
+              <p class="wind_kph">0 km/h</p>
+              <h4>WIND SPEED</h4>
+            </div>
+          </div>
+          <div class="clouds card">
+            <img src="assets/cloud.png" alt="logo" />
+            <div class="text-decoration">
+              <p class="cloud">97%</p>
+              <h4>CLOUDS</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="countryCode.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
