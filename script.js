@@ -75,6 +75,7 @@ function failedToGet(){
     masterInput.classList.add("hide");
     locationAccess.classList.add("hide");
     visibleContainer.classList.add("hide");
+    inputField.value = "";
 }
 
 btn.addEventListener('click', async ()=>{
@@ -82,8 +83,7 @@ btn.addEventListener('click', async ()=>{
     navigator.geolocation.getCurrentPosition(gotLocation, failedToGet);
 });
 
-
-searchBtn.addEventListener('click', async ()=>{
+async function getWeatherReport(){
     const cityName = inputField.value;
         const data = await fetch(`https://api.weatherapi.com/v1/current.json?key=3ece69ae65b744d693c73416241208&q=${cityName}&aqi=yes`);
     // console.log(data);
@@ -98,10 +98,9 @@ searchBtn.addEventListener('click', async ()=>{
             failedToGet();
             inputField.value = "";
         }
-    
+}
 
-    
-})
+searchBtn.addEventListener('click',  getWeatherReport)
 
 
 backBtn.addEventListener('click', ()=>{
@@ -110,6 +109,18 @@ backBtn.addEventListener('click', ()=>{
     locationAccess.classList.remove("hide");
 })
 
+
+inputField.addEventListener('keydown', (e) => {
+    
+    if(e.key === 'Enter'){
+        if(inputField.value !== ""){
+            getWeatherReport();
+        }
+        else{
+            failedToGet();
+        }
+    }
+}, false);
 
 
 
